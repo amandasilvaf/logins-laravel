@@ -26,3 +26,16 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::middleware(['admin'])->group(function(){
+
+    Route::get('/admin', function(){
+        dd("Você é admin");
+    });
+});
+
+Route::middleware(['client'])->group(function(){
+
+    Route::get('/client', function(){
+        dd("Você é client");
+    });
+});
