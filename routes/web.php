@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DepartamentoControlador;
 use App\Http\Controllers\ProdutoControlador;
 use Illuminate\Support\Facades\Auth;
@@ -30,4 +31,6 @@ Route::get('/departamentos', [DepartamentoControlador::class, 'index']);
 Route::get('/usuario', function(){
     return view('usuario');
 });
+
+Route::get('/admin', [AdminController::class, 'index'])->name('homeadmin');
 
