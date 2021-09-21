@@ -26,13 +26,3 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/produtos', [ProdutoControlador::class, 'index']);
-Route::get('/teste', [ProdutoControlador::class, 'test'])->middleware('auth');
-Route::get('/departamentos', [DepartamentoControlador::class, 'index']);
-Route::get('/usuario', function(){
-    return view('usuario');
-});
-
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
-Route::get('/admin/login', [LoginAdminController::class, 'index'])->name('admin.login');
-Route::post('/admin/login', [LoginAdminController::class, 'login'])->name('admin.login.submit');
