@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\LoginAdminController;
 use App\Http\Controllers\DepartamentoControlador;
 use App\Http\Controllers\ProdutoControlador;
 use Illuminate\Support\Facades\Auth;
@@ -32,5 +33,6 @@ Route::get('/usuario', function(){
     return view('usuario');
 });
 
-Route::get('/admin', [AdminController::class, 'index'])->name('homeadmin');
-
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/login', [LoginAdminController::class, 'index'])->name('admin.login');
+Route::post('/admin/login', [LoginAdminController::class, 'login'])->name('admin.login.submit');
